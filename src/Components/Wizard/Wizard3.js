@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { updateFullSentence } from '../../redux/reducer';
+import { connect } from 'react-redux';
 
 class Wizard3 extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class Wizard3 extends Component {
   }
 
   handleSubmit = () => {
-    window.alert('wubalubadubdub')
+    this.props.updateFullSentence(this.state.userText);
   }
 
   render() {
@@ -26,4 +28,4 @@ class Wizard3 extends Component {
   }
 }
 
-export default Wizard3;
+export default connect(null, { updateFullSentence })(Wizard3);

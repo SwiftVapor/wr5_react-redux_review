@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { updateFullSentence } from '../../redux/reducer';
+import { connect } from 'react-redux';
 
 class Wizard2 extends Component {
   constructor(props) {
@@ -12,6 +14,7 @@ class Wizard2 extends Component {
   }
 
   handleSubmit = () => {
+    this.props.updateFullSentence(this.state.userText);
     this.props.history.push('/wizard3')
   }
 
@@ -26,4 +29,4 @@ class Wizard2 extends Component {
   }
 }
 
-export default Wizard2;
+export default connect(null, { updateFullSentence })(Wizard2);
